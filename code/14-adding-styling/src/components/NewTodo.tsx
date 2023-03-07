@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-
+import React from 'react';
 import classes from './NewTodo.module.css';
 
 const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {

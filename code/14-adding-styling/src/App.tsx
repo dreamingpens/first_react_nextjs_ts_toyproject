@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import React from 'react';
 import NewTodo from './components/NewTodo';
 import Todos from './components/Todos';
 import Todo from './models/todo';
@@ -14,11 +14,16 @@ function App() {
       return prevTodos.concat(newTodo);
     });
   };
+  const deleteTodoHandler = (toDoId: string) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((toDo) => toDo.id !== toDoId)
+    })
+  }
 
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onDeleteTodo={deleteTodoHandler} />
     </div>
   );
 }
